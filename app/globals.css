@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 172 66% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 190 95% 39%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 172 66% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-mono font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-cyan-500 to-sky-500;
+  }
+}
+
+/* Custom gradients */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-cyan-500 to-sky-500;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-b from-teal-500/10 to-background;
+}
+
+.gradient-border {
+  @apply border border-teal-500/20;
+}
+
+/* Grid pattern */
+.grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Featured project card */
+.featured-project {
+  @apply relative overflow-hidden rounded-3xl transition-all duration-300;
+}
+
+.featured-project::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.featured-project:hover::before {
+  @apply opacity-100;
+}
+
+/* Image card */
+.image-card {
+  @apply relative overflow-hidden rounded-2xl;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.image-card::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.image-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Typography */
+.heading-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-cyan-500 to-sky-500;
+}
+
+/* Partnership cards */
+.partnership-card {
+  @apply bg-secondary/50 hover:bg-secondary/70 transition-colors duration-300;
+}
+
